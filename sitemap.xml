@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<article lang="">
+  <para>&lt;?xml version="1.0" encoding="UTF-8"?&gt;</para>
+  <para>&lt;urlset</para>
+  <para>  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"</para>
+  <para>  xmlns:xhtml="http://www.w3.org/1999/xhtml"&gt;</para>
+  <para>  </para>
+  <para>  &lt;url&gt;</para>
+  <para>    &lt;loc&gt;https://www.instalartec.com/&lt;/loc&gt;</para>
+  <para>    &lt;lastmod&gt;2025-10-04&lt;/lastmod&gt;</para>
+  <para>    &lt;changefreq&gt;monthly&lt;/changefreq&gt;</para>
+  <para>    &lt;priority&gt;1.0&lt;/priority&gt;</para>
+  <para>  &lt;/url&gt;</para>
+  <para/>
+  <para/>
+  <para>  &lt;url&gt;</para>
+  <para>    &lt;loc&gt;https://www.instalartec.com/#servicos&lt;/loc&gt;</para>
+  <para>    &lt;lastmod&gt;2025-10-04&lt;/lastmod&gt;</para>
+  <para>    &lt;changefreq&gt;monthly&lt;/changefreq&gt;</para>
+  <para>    &lt;priority&gt;0.9&lt;/priority&gt;</para>
+  <para>  &lt;/url&gt;</para>
+  <para/>
+  <para/>
+  <para>  &lt;url&gt;</para>
+  <para>    &lt;loc&gt;https://www.instalartec.com/#contato&lt;/loc&gt;</para>
+  <para>    &lt;lastmod&gt;2025-10-04&lt;/lastmod&gt;</para>
+  <para>    &lt;changefreq&gt;monthly&lt;/changefreq&gt;</para>
+  <para>    &lt;priority&gt;0.9&lt;/priority&gt;</para>
+  <para>  &lt;/url&gt;</para>
+  <para/>
+  <para/>
+  <para>  &lt;url&gt;</para>
+  <para>    &lt;loc&gt;https://www.instalartec.com/#sobre&lt;/loc&gt;</para>
+  <para>    &lt;lastmod&gt;2025-10-04&lt;/lastmod&gt;</para>
+  <para>    &lt;changefreq&gt;monthly&lt;/changefreq&gt;</para>
+  <para>    &lt;priority&gt;0.8&lt;/priority&gt;</para>
+  <para>  &lt;/url&gt;</para>
+  <para/>
+  <para/>
+  <para>&lt;/urlset&gt;</para>
+</article>

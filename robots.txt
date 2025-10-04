@@ -1,0 +1,21 @@
+﻿# robots.txt para InstalarTec Ar Condicionado
+User-agent: *
+Allow: /
+
+
+Sitemap: https://www.instalartec.com/sitemap.xml
+
+
+# Instruções extras
+User-agent: Googlebot
+Allow: /
+
+
+User-agent: Bingbot
+Allow: /
+
+
+# Bloquear páginas desnecessárias (se existirem)
+Disallow: /admin/
+Disallow: /login/
+Disallow: /privado/
