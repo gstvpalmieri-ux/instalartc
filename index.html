@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InstalarTec - Especialistas em Ar-Condicionado</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <style>
+        body {
+            box-sizing: border-box;
+        }
+        
+        /* Modern Animations */
+        .animate-bounce-slow { animation: bounce 3s infinite; }
+        .animate-pulse-soft { animation: pulseSoft 4s ease-in-out infinite; }
+        .animate-slide-up { animation: slideUp 0.8s ease-out forwards; }
+        .animate-slide-right { animation: slideRight 0.8s ease-out forwards; }
+        .animate-fade-in { animation: fadeIn 1s ease-out forwards; }
+        .animate-scale-in { animation: scaleIn 0.6s ease-out forwards; }
+        .animate-rotate-slow { animation: rotateSlow 20s linear infinite; }
+        .animate-float-gentle { animation: floatGentle 4s ease-in-out infinite; }
+        
+        @keyframes pulseSoft {
+            0%, 100% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.05); opacity: 1; }
+        }
+        
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes slideRight {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes scaleIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        
+        @keyframes rotateSlow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        @keyframes floatGentle {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+        
+        /* Modern Gradients */
+        .gradient-primary { background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%); }
+        .gradient-secondary { background: linear-gradient(135deg, #f97316 0%, #ea580c 100%); }
+        .gradient-accent { background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%); }
+        .gradient-success { background: linear-gradient(135deg, #10b981 0%, #059669 100%); }
+        .gradient-text { 
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6, #60a5fa); 
+            background-clip: text; 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+        }
+        
+        /* Glass Morphism */
+        .glass { 
+            backdrop-filter: blur(20px); 
+            background: rgba(255, 255, 255, 0.1); 
+            border: 1px solid rgba(255, 255, 255, 0.2); 
+        }
+        .glass-dark { 
+            backdrop-filter: blur(20px); 
+            background: rgba(0, 0, 0, 0.1); 
+            border: 1px solid rgba(255, 255, 255, 0.1); 
+        }
+        
+        /* Modern Cards */
+        .card-modern { 
+            background: linear-gradient(145deg, #ffffff, #f0f0f0);
+            box-shadow: 20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .card-modern:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 30px 30px 80px #d0d0d0, -30px -30px 80px #ffffff;
+        }
+        
+        /* Particle Background */
+        .particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .particle:nth-child(1) { width: 4px; height: 4px; left: 10%; animation-delay: 0s; }
+        .particle:nth-child(2) { width: 6px; height: 6px; left: 20%; animation-delay: 1s; }
+        .particle:nth-child(3) { width: 3px; height: 3px; left: 30%; animation-delay: 2s; }
+        .particle:nth-child(4) { width: 5px; height: 5px; left: 40%; animation-delay: 3s; }
+        .particle:nth-child(5) { width: 4px; height: 4px; left: 50%; animation-delay: 4s; }
+        .particle:nth-child(6) { width: 6px; height: 6px; left: 60%; animation-delay: 5s; }
+        .particle:nth-child(7) { width: 3px; height: 3px; left: 70%; animation-delay: 6s; }
+        .particle:nth-child(8) { width: 5px; height: 5px; left: 80%; animation-delay: 7s; }
+        .particle:nth-child(9) { width: 4px; height: 4px; left: 90%; animation-delay: 8s; }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10%, 90% { opacity: 1; }
+            50% { transform: translateY(-10vh) rotate(180deg); }
+        }
+        
+        /* Desktop Optimizations */
+        @media (min-width: 1200px) {
+            .text-8xl { font-size: 8rem !important; line-height: 0.85; }
+            .text-7xl { font-size: 5.5rem !important; line-height: 0.9; }
+            .text-6xl { font-size: 4.5rem !important; line-height: 1; }
+            .text-5xl { font-size: 3.5rem !important; line-height: 1.1; }
+            .text-4xl { font-size: 2.75rem !important; line-height: 1.2; }
+            .text-3xl { font-size: 2.25rem !important; line-height: 1.3; }
+            .text-2xl { font-size: 1.75rem !important; line-height: 1.4; }
+            .text-xl { font-size: 1.5rem !important; line-height: 1.5; }
+            .py-24 { padding-top: 6rem !important; padding-bottom: 6rem !important; }
+            .py-20 { padding-top: 5rem !important; padding-bottom: 5rem !important; }
+            .py-16 { padding-top: 4rem !important; padding-bottom: 4rem !important; }
+            .mb-20 { margin-bottom: 5rem !important; }
+            .mb-12 { margin-bottom: 3rem !important; }
+            .mb-8 { margin-bottom: 2rem !important; }
+            .gap-12 { gap: 3rem !important; }
+            .gap-8 { gap: 2rem !important; }
+            .min-h-screen { min-height: 90vh; }
+        }
+
+        /* Large Desktop Optimizations */
+        @media (min-width: 1440px) {
+            .text-8xl { font-size: 10rem !important; line-height: 0.8; }
+            .text-7xl { font-size: 6.5rem !important; line-height: 0.85; }
+        }
+
+        /* Tablet Optimizations */
+        @media (max-width: 1024px) and (min-width: 769px) {
+            .text-8xl { font-size: 5.5rem !important; line-height: 0.9; }
+            .text-7xl { font-size: 4rem !important; line-height: 1; }
+            .text-6xl { font-size: 3.5rem !important; line-height: 1.1; }
+            .text-5xl { font-size: 2.75rem !important; line-height: 1.2; }
+            .text-4xl { font-size: 2.25rem !important; line-height: 1.3; }
+            .text-3xl { font-size: 2rem !important; line-height: 1.3; }
+            .text-2xl { font-size: 1.5rem !important; line-height: 1.4; }
+            .text-xl { font-size: 1.25rem !important; line-height: 1.5; }
+            .py-24 { padding-top: 4rem !important; padding-bottom: 4rem !important; }
+            .py-20 { padding-top: 3.5rem !important; padding-bottom: 3.5rem !important; }
+            .py-16 { padding-top: 3rem !important; padding-bottom: 3rem !important; }
+            .mb-20 { margin-bottom: 3rem !important; }
+            .mb-12 { margin-bottom: 2rem !important; }
+            .gap-12 { gap: 2rem !important; }
+            .gap-8 { gap: 1.5rem !important; }
+            .card-modern { padding: 2rem !important; }
+        }
+
+        /* Mobile Optimizations */
+        @media (max-width: 768px) {
+            .animate-float-gentle { animation: none; }
+            .card-modern:hover { transform: none; }
+            .text-8xl { font-size: 3.75rem !important; line-height: 1; }
+            .text-7xl { font-size: 3rem !important; line-height: 1.1; }
+            .text-6xl { font-size: 2.5rem !important; line-height: 1.1; }
+            .text-5xl { font-size: 2.25rem !important; line-height: 1.2; }
+            .text-4xl { font-size: 2rem !important; line-height: 1.3; }
+            .text-3xl { font-size: 1.75rem !important; line-height: 1.3; }
+            .text-2xl { font-size: 1.5rem !important; line-height: 1.4; }
+            .text-xl { font-size: 1.25rem !important; line-height: 1.5; }
+            .py-24 { padding-top: 3rem !important; padding-bottom: 3rem !important; }
+            .py-20 { padding-top: 2.5rem !important; padding-bottom: 2.5rem !important; }
+            .py-16 { padding-top: 2rem !important; padding-bottom: 2rem !important; }
+            .px-8 { padding-left: 1rem !important; padding-right: 1rem !important; }
+            .px-4 { padding-left: 0.75rem !important; padding-right: 0.75rem !important; }
+            .gap-12 { gap: 1.5rem !important; }
+            .gap-8 { gap: 1rem !important; }
+            .gap-6 { gap: 0.75rem !important; }
+            .gap-4 { gap: 0.5rem !important; }
+            .mb-20 { margin-bottom: 1.5rem !important; }
+            .mb-12 { margin-bottom: 1.5rem !important; }
+            .mb-8 { margin-bottom: 1rem !important; }
+            .mb-6 { margin-bottom: 0.75rem !important; }
+            .space-x-8 > * + * { margin-left: 1rem !important; }
+            .space-x-6 > * + * { margin-left: 0.75rem !important; }
+            .space-x-4 > * + * { margin-left: 0.5rem !important; }
+            .min-h-screen { min-height: 100vh; }
+            .card-modern { padding: 1.5rem !important; }
+            .rounded-3xl { border-radius: 1.5rem !important; }
+            .w-16.h-16 { width: 3rem !important; height: 3rem !important; }
+            .w-12.h-12 { width: 2.5rem !important; height: 2.5rem !important; }
+        }
+        
+        @media (max-width: 640px) {
+            .text-8xl { font-size: 3rem !important; }
+            .text-7xl { font-size: 2.5rem !important; }
+            .text-6xl { font-size: 2.125rem !important; }
+            .text-5xl { font-size: 1.875rem !important; }
+            .text-4xl { font-size: 1.625rem !important; }
+            .hero-section { padding-top: 6rem !important; }
+            .flex-col.sm\\:flex-row { flex-direction: column !important; }
+            .px-10 { padding-left: 1.5rem !important; padding-right: 1.5rem !important; }
+            .py-5 { padding-top: 1rem !important; padding-bottom: 1rem !important; }
+            .py-4 { padding-top: 0.875rem !important; padding-bottom: 0.875rem !important; }
+            .space-x-8 { flex-wrap: wrap !important; gap: 0.5rem !important; }
+            .space-x-8 > * + * { margin-left: 0 !important; }
+            .justify-center { text-align: center !important; }
+        }
+        
+        @media (max-width: 480px) {
+            .container { padding-left: 0.75rem !important; padding-right: 0.75rem !important; }
+            .card-modern { padding: 1rem !important; margin-bottom: 1rem !important; }
+            .text-8xl { font-size: 2rem !important; }
+            .text-7xl { font-size: 1.75rem !important; }
+            .text-6xl { font-size: 1.625rem !important; }
+            .text-5xl { font-size: 1.5rem !important; }
+            .px-8 { padding-left: 0.75rem !important; padding-right: 0.75rem !important; }
+            .py-24 { padding-top: 2rem !important; padding-bottom: 2rem !important; }
+            .grid.md\\:grid-cols-3 { grid-template-columns: 1fr !important; }
+            .grid.lg\\:grid-cols-2 { grid-template-columns: 1fr !important; }
+            .grid.md\\:grid-cols-4 { grid-template-columns: 1fr !important; }
+            .grid.sm\\:grid-cols-2 { grid-template-columns: 1fr !important; }
+        }
+        
+        /* Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            * { animation: none !important; transition: none !important; }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 overflow-x-hidden">
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/5517992358505?text=Ol%C3%A1!%20Vim%20pelo%20site." 
+       class="fixed bottom-6 right-6 z-50 w-16 h-16 gradient-success rounded-full flex items-center justify-center text-white shadow-2xl animate-pulse-soft hover:scale-110 transition-transform">
+        <i data-lucide="message-circle" class="w-8 h-8"></i>
+    </a>
+
+    <!-- Modern Header -->
+    <header class="fixed top-0 w-full z-40 glass">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex items-center space-x-4">
+                    <div class="w-12 h-12 gradient-primary rounded-xl flex items-center justify-center animate-pulse-soft">
+                        <i data-lucide="snowflake" class="w-6 h-6 text-white"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold text-white">InstalarTec</h1>
+                        <p class="text-xs text-blue-200">Soluções em Climatização</p>
+                    </div>
+                </div>
+                
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#servicos" class="text-white/90 hover:text-white transition-colors font-medium">Serviços</a>
+                    <a href="#depoimentos" class="text-white/90 hover:text-white transition-colors font-medium">Depoimentos</a>
+                    <a href="#faq" class="text-white/90 hover:text-white transition-colors font-medium">Dúvidas</a>
+                    <a href="#contato" class="text-white/90 hover:text-white transition-colors font-medium">Contato</a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden w-10 h-10 rounded-lg bg-white/20 flex items-center justify-center text-white" id="mobile-menu-btn">
+                    <i data-lucide="menu" class="w-5 h-5"></i>
+                </button>
+
+                <a href="tel:(17) 99235-8505" class="hidden sm:flex md:flex items-center space-x-2 bg-white/20 hover:bg-white/30 px-4 py-2 rounded-full text-white transition-all">
+                    <i data-lucide="phone" class="w-4 h-4"></i>
+                    <span class="text-sm font-medium">(17) 99235-8505</span>
+                </a>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div class="md:hidden fixed inset-0 z-50 bg-slate-900/95 backdrop-blur-lg transform translate-x-full transition-transform duration-300" id="mobile-menu">
+                <div class="flex flex-col h-full">
+                    <div class="flex items-center justify-between p-4 border-b border-white/10">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 gradient-primary rounded-xl flex items-center justify-center">
+                                <i data-lucide="snowflake" class="w-5 h-5 text-white"></i>
+                            </div>
+                            <span class="text-white font-bold text-lg">InstalarTec</span>
+                        </div>
+                        <button class="w-10 h-10 rounded-lg bg-white/20 flex items-center justify-center text-white" id="mobile-menu-close">
+                            <i data-lucide="x" class="w-5 h-5"></i>
+                        </button>
+                    </div>
+                    <nav class="flex-1 px-4 py-8">
+                        <div class="space-y-6">
+                            <a href="#servicos" class="block text-white text-lg font-medium py-3 border-b border-white/10 mobile-menu-link">Serviços</a>
+                            <a href="#depoimentos" class="block text-white text-lg font-medium py-3 border-b border-white/10 mobile-menu-link">Depoimentos</a>
+                            <a href="#faq" class="block text-white text-lg font-medium py-3 border-b border-white/10 mobile-menu-link">Dúvidas</a>
+                            <a href="#contato" class="block text-white text-lg font-medium py-3 border-b border-white/10 mobile-menu-link">Contato</a>
+                        </div>
+                        <div class="mt-8 space-y-4">
+                            <a href="tel:(17) 99235-8505" class="flex items-center space-x-3 bg-white/20 hover:bg-white/30 px-4 py-3 rounded-xl text-white transition-all">
+                                <i data-lucide="phone" class="w-5 h-5"></i>
+                                <span class="font-medium">(17) 99235-8505</span>
+                            </a>
+                            <a href="https://wa.me/5517992358505" class="flex items-center space-x-3 gradient-success px-4 py-3 rounded-xl text-white transition-all">
+                                <i data-lucide="message-circle" class="w-5 h-5"></i>
+                                <span class="font-medium">WhatsApp</span>
+                            </a>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-[85vh] lg:min-h-[90vh] bg-gradient-to-br from-slate-900 via-blue-900 to-blue-800 flex items-center pt-20 overflow-hidden hero-section">
+        <div class="particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="animate-slide-up lg:order-2">
+                    <div class="relative flex items-center justify-center animate-float-gentle">
+                        <img src="https://i.postimg.cc/05Fn81Mh/file-000000004c1061f5b42964de5a6412e1-2.png" 
+                             alt="InstalarTec - Logo da Empresa" 
+                             class="max-w-full max-h-80 lg:max-h-96 object-contain drop-shadow-2xl"
+                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="hidden items-center justify-center">
+                            <i data-lucide="fan" class="w-32 h-32 text-white/80 animate-rotate-slow drop-shadow-2xl"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="animate-slide-right lg:order-1 text-center">
+                    <div class="inline-flex items-center space-x-2 bg-white/20 text-white px-4 py-2 rounded-full text-sm font-medium mb-8">
+                        <i data-lucide="zap" class="w-4 h-4"></i>
+                        <span>Atendimento 24/7</span>
+                    </div>
+                    
+                    <h1 class="text-6xl lg:text-8xl font-black text-white leading-tight mb-6">
+                        <span class="block">Clima</span>
+                        <span class="block bg-gradient-to-r from-blue-400 to-blue-300 bg-clip-text text-transparent">
+                            Perfeito
+                        </span>
+                        <span class="block">Todo Dia</span>
+                    </h1>
+                    
+                    <p class="text-xl text-white/90 leading-relaxed mb-8 max-w-lg mx-auto">
+                        Transformamos seu ambiente com tecnologia de ponta e atendimento premium. 
+                        <span class="font-semibold text-blue-300">Garantia total</span> em todos os serviços.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4 mb-12 justify-center">
+                        <a href="https://wa.me/5517992358505?text=Ol%C3%A1!%20Quero%20falar%20com%20um%20t%C3%A9cnico." 
+                           class="group inline-flex items-center justify-center px-8 py-4 gradient-secondary text-white font-bold rounded-2xl transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105">
+                            <i data-lucide="message-square" class="mr-3 w-5 h-5 group-hover:scale-110 transition-transform"></i>
+                            Atendimento Imediato
+                        </a>
+                        <a href="tel:(17) 99235-8505" 
+                           class="group inline-flex items-center justify-center px-8 py-4 bg-white/20 hover:bg-white/30 text-white font-bold rounded-2xl transition-all duration-300 border border-white/30">
+                            <i data-lucide="phone" class="mr-3 w-5 h-5 group-hover:scale-110 transition-transform"></i>
+                            Ligar Agora
+                        </a>
+                    </div>
+
+                    <div class="flex flex-wrap items-center gap-6 text-sm justify-center">
+                        <div class="flex items-center space-x-2 text-green-400">
+                            <i data-lucide="shield-check" class="w-5 h-5"></i>
+                            <span class="font-semibold">Garantia Premium</span>
+                        </div>
+                        <div class="flex items-center space-x-2 text-blue-300">
+                            <i data-lucide="clock" class="w-5 h-5"></i>
+                            <span class="font-semibold">Resposta Rápida</span>
+                        </div>
+                        <div class="flex items-center space-x-2 text-orange-400">
+                            <i data-lucide="star" class="w-5 h-5"></i>
+                            <span class="font-semibold">5 Estrelas</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brands Section -->
+    <section class="py-12 lg:py-16 bg-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <p class="text-gray-600 font-medium mb-4">Parceiros de Confiança</p>
+                <h3 class="text-2xl font-bold text-gray-900">Trabalhamos com as Melhores Marcas</h3>
+            </div>
+            <div class="flex justify-center items-center space-x-4 md:space-x-8 flex-wrap gap-y-4 md:gap-y-6 px-4">
+                <div class="group cursor-pointer animate-fade-in opacity-0" style="animation-delay: 0.1s;">
+                    <span class="text-2xl font-black text-gray-400 group-hover:text-blue-600 transition-all duration-500 group-hover:scale-125 group-hover:rotate-2 inline-block transform">LG</span>
+                    <div class="w-0 group-hover:w-full h-0.5 bg-gradient-to-r from-blue-500 to-blue-600 transition-all duration-500 mx-auto mt-1"></div>
+                </div>
+                <div class="group cursor-pointer animate-fade-in opacity-0" style="animation-delay: 0.2s;">
+                    <span class="text-2xl font-black text-gray-400 group-hover:text-blue-600 transition-all duration-500 group-hover:scale-125 group-hover:-rotate-2 inline-block transform">SAMSUNG</span>
+                    <div class="w-0 group-hover:w-full h-0.5 bg-gradient-to-r from-blue-500 to-blue-600 transition-all duration-500 mx-auto mt-1"></div>
+                </div>
+                <div class="group cursor-pointer animate-fade-in opacity-0" style="animation-delay: 0.3s;">
+                    <span class="text-2xl font-black text-gray-400 group-hover:text-blue-600 transition-all duration-500 group-hover:scale-125 group-hover:rotate-1 inline-block transform">DAIKIN</span>
+                    <div class="w-0 group-hover:w-full h-0.5 bg-gradient-to-r from-blue-500 to-blue-600 transition-all duration-500 mx-auto mt-1"></div>
+                </div>
+                <div class="group cursor-pointer animate-fade-in opacity-0" style="animation-delay: 0.4s;">
+                    <span class="text-2xl font-black text-gray-400 group-hover:text-blue-600 transition-all duration-500 group-hover:scale-125 group-hover:-rotate-1 inline-block transform">MIDEA</span>
+                    <div class="w-0 group-hover:w-full h-0.5 bg-gradient-to-r from-blue-500 to-blue-600 transition-all duration-500 mx-auto mt-1"></div>
+                </div>
+                <div class="group cursor-pointer animate-fade-in opacity-0" style="animation-delay: 0.5s;">
+                    <span class="text-2xl font-black text-gray-400 group-hover:text-blue-600 transition-all duration-500 group-hover:scale-125 group-hover:rotate-2 inline-block transform">CARRIER</span>
+                    <div class="w-0 group-hover:w-full h-0.5 bg-gradient-to-r from-blue-500 to-blue-600 transition-all duration-500 mx-auto mt-1"></div>
+                </div>
+                <div class="group cursor-pointer animate-fade-in opacity-0" style="animation-delay: 0.6s;">
+                    <span class="text-2xl font-black text-gray-400 group-hover:text-blue-600 transition-all duration-500 group-hover:scale-125 group-hover:-rotate-2 inline-block transform">FUJITSU</span>
+                    <div class="w-0 group-hover:w-full h-0.5 bg-gradient-to-r from-blue-500 to-blue-600 transition-all duration-500 mx-auto mt-1"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="servicos" class="py-16 lg:py-24 bg-gradient-to-br from-gray-50 to-blue-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-20">
+                <div class="inline-flex items-center space-x-2 bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-semibold mb-6">
+                    <i data-lucide="wrench" class="w-4 h-4"></i>
+                    <span>Serviços Premium</span>
+                </div>
+                <h2 class="text-4xl lg:text-5xl font-black text-gray-900 mb-6">
+                    Soluções <span class="gradient-text">Completas</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Tecnologia avançada e expertise profissional para manter seu ambiente sempre perfeito
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="card-modern rounded-3xl p-8 group animate-slide-up opacity-0" style="animation-delay: 0.1s;">
+                    <div class="w-16 h-16 gradient-primary rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
+                        <i data-lucide="settings" class="w-8 h-8 text-white group-hover:rotate-180 transition-transform duration-700"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4 group-hover:text-blue-700 transition-colors duration-300">Instalação de Ar Condicionado</h3>
+                    <p class="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">Projeto completo com infraestrutura profissional. Instalação com nível e vácuo para máxima eficiência energética.</p>
+                    <div class="mt-6 flex items-center text-blue-600 font-semibold group-hover:gap-3 gap-2 transition-all duration-300">
+                        <span>Saiba mais</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-2 transition-transform duration-300"></i>
+                    </div>
+                </div>
+
+                <div class="card-modern rounded-3xl p-8 group animate-slide-up opacity-0" style="animation-delay: 0.2s;">
+                    <div class="w-16 h-16 gradient-secondary rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
+                        <i data-lucide="sparkles" class="w-8 h-8 text-white group-hover:animate-pulse transition-all duration-300"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4 group-hover:text-orange-700 transition-colors duration-300">Higienização Profunda</h3>
+                    <p class="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">Limpeza química especializada removendo 99% dos fungos e bactérias. Ar mais puro para sua família.</p>
+                    <div class="mt-6 flex items-center text-orange-600 font-semibold group-hover:gap-3 gap-2 transition-all duration-300">
+                        <span>Saiba mais</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-2 transition-transform duration-300"></i>
+                    </div>
+                </div>
+
+                <div class="card-modern rounded-3xl p-8 group animate-slide-up opacity-0" style="animation-delay: 0.3s;">
+                    <div class="w-16 h-16 gradient-accent rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
+                        <i data-lucide="wrench" class="w-8 h-8 text-white group-hover:rotate-12 transition-transform duration-500"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4 group-hover:text-blue-700 transition-colors duration-300">Manutenção Preventiva</h3>
+                    <p class="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">Diagnóstico com equipamentos de precisão. Manutenção preventiva que evita problemas futuros.</p>
+                    <div class="mt-6 flex items-center text-blue-600 font-semibold group-hover:gap-3 gap-2 transition-all duration-300">
+                        <span>Saiba mais</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-2 transition-transform duration-300"></i>
+                    </div>
+                </div>
+
+                <div class="card-modern rounded-3xl p-8 group animate-slide-up opacity-0" style="animation-delay: 0.4s;">
+                    <div class="w-16 h-16 gradient-primary rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
+                        <i data-lucide="building-2" class="w-8 h-8 text-white group-hover:scale-110 transition-transform duration-300"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4 group-hover:text-blue-700 transition-colors duration-300">Contratos Empresariais</h3>
+                    <p class="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">Planos PMOC personalizados com relatórios detalhados e conformidade total com normas técnicas.</p>
+                    <div class="mt-6 flex items-center text-blue-600 font-semibold group-hover:gap-3 gap-2 transition-all duration-300">
+                        <span>Saiba mais</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-2 transition-transform duration-300"></i>
+                    </div>
+                </div>
+
+                <div class="card-modern rounded-3xl p-8 group animate-slide-up opacity-0" style="animation-delay: 0.5s;">
+                    <div class="w-16 h-16 gradient-accent rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
+                        <i data-lucide="thermometer-sun" class="w-8 h-8 text-white group-hover:animate-bounce transition-all duration-300"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4 group-hover:text-blue-700 transition-colors duration-300">Consultoria Técnica</h3>
+                    <p class="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">Seleção inteligente de equipamentos Inverter baseada em carga térmica e eficiência energética.</p>
+                    <div class="mt-6 flex items-center text-blue-600 font-semibold group-hover:gap-3 gap-2 transition-all duration-300">
+                        <span>Saiba mais</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-2 transition-transform duration-300"></i>
+                    </div>
+                </div>
+
+                <div class="card-modern rounded-3xl p-8 group animate-slide-up opacity-0" style="animation-delay: 0.6s;">
+                    <div class="w-16 h-16 gradient-secondary rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
+                        <i data-lucide="map-pin" class="w-8 h-8 text-white group-hover:animate-bounce transition-all duration-300"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4 group-hover:text-orange-700 transition-colors duration-300">Atendimentos</h3>
+                    <p class="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">Cobertura para São José do Rio Preto e regiões SP, para Residenciais, Comércios e Empresas.</p>
+                    <div class="mt-6 flex items-center text-orange-600 font-semibold group-hover:gap-3 gap-2 transition-all duration-300">
+                        <span>Saiba mais</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-2 transition-transform duration-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="depoimentos" class="py-16 lg:py-24 bg-gradient-to-br from-slate-900 via-blue-900 to-blue-800 relative overflow-hidden">
+        <div class="particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-20">
+                <div class="inline-flex items-center space-x-2 bg-white/20 text-white px-4 py-2 rounded-full text-sm font-semibold mb-6">
+                    <i data-lucide="heart" class="w-4 h-4"></i>
+                    <span>Depoimentos</span>
+                </div>
+                <h2 class="text-4xl lg:text-5xl font-black text-white mb-6">
+                    O Que Nossos <span class="text-blue-300">Clientes</span> Dizem
+                </h2>
+                <p class="text-xl text-white/90 max-w-2xl mx-auto">
+                    Experiências reais de quem confia na InstalarTec para manter o clima perfeito
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glass rounded-3xl p-8 animate-scale-in">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-gradient-to-br from-red-500 to-red-700 rounded-full flex items-center justify-center text-white font-bold text-lg">
+                            M
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="font-bold text-white">Maria Silva</h4>
+                            <p class="text-white/70 text-sm">Residencial</p>
+                        </div>
+                    </div>
+                    <div class="flex mb-4">
+                        <i data-lucide="star" class="w-5 h-5 text-orange-400 fill-current"></i>
+                        <i data-lucide="star" class="w-5 h-5 text-orange-400 fill-current"></i>
+                        <i data-lucide="star" class="w-5 h-5 text-orange-400 fill-current"></i>
+                        <i data-lucide="star" class="w-5 h-5 text-orange-400 fill-current"></i>
+                        <i data-lucide="star" class="w-5 h-5 text-orange-400 fill-current"></i>
+                    </div>
+                    <p class="text-white/90 leading-relaxed">
+                        "Excelente atendimento! Instalaram meu ar-condicionado com muito profissionalismo. 
+                        O técnico explicou tudo detalhadamente e deixou tudo funcionando perfeitamente. Super recomendo!"
+                    </p>
+                </div>
+
+                <div class="glass rounded-3xl p-8 animate-scale-in" style="animation-delay: 0.2s;">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center text-white font-bold text-lg">
+                            J
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="font-bold text-white">João Santos</h4>
+                            <p class="text-white/70 text-sm">Empresarial</p>
+                        </div>
+                    </div>
+                    <div class="flex mb-4">
+                        <i data-lucide="star" class="w-5 h-5 text-orange-400 fill-current"></i>
+                        <i data-lucide="star" class="w-5 h-5 text-orange-400 fill-current"></i>
+                        <i data-lucide="star" class="w-5 h-5 text-orange-400 fill-current"></i>
+                        <i data-lucide="star" class="w-5 h-5 text-orange-400 fill-current"></i>
+                        <i data-lucide="star" class="w-5 h-5 text-orange-400 fill-current"></i>
+                    </div>
+                    <p class="text-white/90 leading-relaxed">
+                        "Contratamos para manutenção do escritório. Pontualidade impecável, 
+                        serviço de qualidade e preço justo. Nossos funcionários ficaram muito satisfeitos com o resultado!"
+                    </p>
+                </div>
+
+                <div class="glass rounded-3xl p-8 animate-scale-in" style="animation-delay: 0.4s;">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-700 rounded-full flex items-center justify-center text-white font-bold text-lg">
+                            A
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="font-bold text-white">Ana Costa</h4>
+                            <p class="text-white/70 text-sm">Residencial</p>
+                        </div>
+                    </div>
+                    <div class="flex mb-4">
+                        <i data-lucide="star" class="w-5 h-5 text-orange-400 fill-current"></i>
+                        <i data-lucide="star" class="w-5 h-5 text-orange-400 fill-current"></i>
+                        <i data-lucide="star" class="w-5 h-5 text-orange-400 fill-current"></i>
+                        <i data-lucide="star" class="w-5 h-5 text-orange-400 fill-current"></i>
+                        <i data-lucide="star" class="w-5 h-5 text-orange-400 fill-current"></i>
+                    </div>
+                    <p class="text-white/90 leading-relaxed">
+                        "Higienização completa que fez toda diferença! O ar ficou muito mais puro e o equipamento 
+                        mais silencioso. Atendimento nota 10, super indico a InstalarTec!"
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 lg:py-20 bg-gradient-to-br from-slate-900 to-blue-900 relative overflow-hidden">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <div class="inline-flex items-center space-x-2 bg-white/20 text-white px-4 py-2 rounded-full text-sm font-semibold mb-8">
+                <i data-lucide="zap" class="w-4 h-4"></i>
+                <span>Atendimento Prioritário</span>
+            </div>
+            
+            <h2 class="text-4xl lg:text-5xl font-black text-white mb-6">
+                Seu Conforto Não Pode
+                <span class="block text-white">Esperar</span>
+            </h2>
+            
+            <p class="text-xl text-white/90 mb-12 max-w-2xl mx-auto">
+                Técnicos especializados prontos para resolver seu problema agora mesmo. 
+                Atendimento 24/7 com garantia total.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                <a href="https://wa.me/5517992358505?text=Ol%C3%A1!%20Quero%20falar%20com%20um%20t%C3%A9cnico." 
+                   class="group inline-flex items-center justify-center px-10 py-5 bg-gradient-to-r from-orange-600 to-orange-700 text-white font-bold rounded-2xl transition-all duration-300 shadow-2xl hover:scale-105">
+                    <i data-lucide="message-square" class="mr-3 w-6 h-6 group-hover:scale-110 transition-transform"></i>
+                    <span class="hidden sm:inline">Chamar Técnico Agora</span>
+                    <span class="sm:hidden">WhatsApp Técnico</span>
+                    <div class="ml-3 px-2 py-1 bg-orange-500 rounded-full text-xs">24/7</div>
+                </a>
+                <a href="tel:(17) 99235-8505" 
+                   class="group inline-flex items-center justify-center px-10 py-5 bg-white hover:bg-gray-50 text-blue-700 font-bold rounded-2xl transition-all duration-300 shadow-2xl hover:scale-105">
+                    <i data-lucide="phone" class="mr-3 w-6 h-6 group-hover:scale-110 transition-transform"></i>
+                    Ligar Agora
+                    <i data-lucide="arrow-right" class="ml-3 w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-16 lg:py-24 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-20">
+                <div class="inline-flex items-center space-x-2 bg-gray-100 text-gray-700 px-4 py-2 rounded-full text-sm font-semibold mb-6">
+                    <i data-lucide="help-circle" class="w-4 h-4"></i>
+                    <span>Dúvidas Frequentes</span>
+                </div>
+                <h2 class="text-4xl lg:text-5xl font-black text-gray-900 mb-6">
+                    Tire Suas <span class="gradient-text">Dúvidas</span>
+                </h2>
+                <p class="text-xl text-gray-600">
+                    Respostas rápidas para as perguntas mais comuns
+                </p>
+            </div>
+
+            <div class="space-y-6">
+                <div class="card-modern rounded-3xl p-8">
+                    <button class="w-full text-left flex items-center justify-between faq-toggle">
+                        <h3 class="text-xl font-bold text-gray-900 pr-4">De quanto em quanto tempo devo fazer a limpeza do ar-condicionado?</h3>
+                        <div class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center">
+                            <i data-lucide="chevron-right" class="w-5 h-5 text-blue-600 transition-transform duration-300"></i>
+                        </div>
+                    </button>
+                    <div class="mt-6 text-gray-600 text-lg leading-relaxed faq-content">
+                        <div class="bg-blue-50 p-6 rounded-2xl border-l-4 border-blue-500">
+                            Recomendamos a cada <strong>6 meses para residências</strong> e a cada <strong>3 meses para ambientes comerciais</strong> com grande circulação de pessoas ou poeira. Isso garante ar mais puro e maior eficiência energética.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-modern rounded-3xl p-8">
+                    <button class="w-full text-left flex items-center justify-between faq-toggle">
+                        <h3 class="text-xl font-bold text-gray-900 pr-4">Vocês atendem quais marcas?</h3>
+                        <div class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center">
+                            <i data-lucide="chevron-right" class="w-5 h-5 text-blue-600 transition-transform duration-300"></i>
+                        </div>
+                    </button>
+                    <div class="mt-6 text-gray-600 text-lg leading-relaxed faq-content hidden">
+                        <div class="bg-emerald-50 p-6 rounded-2xl border-l-4 border-emerald-500">
+                            Atendemos <strong>LG, Samsung, Daikin, Midea, Carrier, Fujitsu</strong> e outras marcas premium. Nossos técnicos são certificados para trabalhar com todas as tecnologias. Consulte seu modelo no WhatsApp para confirmarmos!
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-modern rounded-3xl p-8">
+                    <button class="w-full text-left flex items-center justify-between faq-toggle">
+                        <h3 class="text-xl font-bold text-gray-900 pr-4">Oferecem garantia nos serviços?</h3>
+                        <div class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center">
+                            <i data-lucide="chevron-right" class="w-5 h-5 text-blue-600 transition-transform duration-300"></i>
+                        </div>
+                    </button>
+                    <div class="mt-6 text-gray-600 text-lg leading-relaxed faq-content hidden">
+                        <div class="bg-purple-50 p-6 rounded-2xl border-l-4 border-purple-500">
+                            <strong>Sim! Garantia total por escrito</strong> em todos os nossos serviços. O prazo varia conforme o tipo de serviço realizado. Instalações têm garantia estendida e manutenções incluem garantia de peças e mão de obra.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-modern rounded-3xl p-8">
+                    <button class="w-full text-left flex items-center justify-between faq-toggle">
+                        <h3 class="text-xl font-bold text-gray-900 pr-4">Emitem nota fiscal?</h3>
+                        <div class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center">
+                            <i data-lucide="chevron-right" class="w-5 h-5 text-blue-600 transition-transform duration-300"></i>
+                        </div>
+                    </button>
+                    <div class="mt-6 text-gray-600 text-lg leading-relaxed faq-content hidden">
+                        <div class="bg-orange-50 p-6 rounded-2xl border-l-4 border-orange-500">
+                            <strong>Claro!</strong> Emitimos nota fiscal para pessoa física e jurídica. Empresa totalmente regularizada com todos os certificados técnicos necessários.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contato" class="py-16 lg:py-24 bg-gradient-to-br from-gray-50 to-blue-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-20">
+                <div class="inline-flex items-center space-x-2 bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-semibold mb-6">
+                    <i data-lucide="headphones" class="w-4 h-4"></i>
+                    <span>Fale Conosco</span>
+                </div>
+                <h2 class="text-4xl lg:text-5xl font-black text-gray-900 mb-6">
+                    Vamos <span class="gradient-text">Conversar</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Tire dúvidas ou solicite um orçamento personalizado. Nossa equipe está pronta para ajudar!
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-16">
+                <div class="space-y-8">
+                    <div class="card-modern rounded-3xl p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-6">Informações de Contato</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 rounded-2xl bg-green-100 flex items-center justify-center">
+                                    <i data-lucide="phone" class="w-6 h-6 text-green-600"></i>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-gray-900">(17) 99235-8505</p>
+                                    <p class="text-gray-600">Atendimento 24/7</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 rounded-2xl bg-orange-100 flex items-center justify-center">
+                                    <i data-lucide="mail" class="w-6 h-6 text-orange-600"></i>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-gray-900">gu.palmieri@hotmail.com</p>
+                                    <p class="text-gray-600">Resposta em até 2h</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 rounded-2xl bg-blue-100 flex items-center justify-center">
+                                    <i data-lucide="map-pin" class="w-6 h-6 text-blue-600"></i>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-gray-900">São José do Rio Preto</p>
+                                    <p class="text-gray-600">São Paulo - SP</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-modern rounded-3xl p-8">
+                        <h3 class="text-xl font-bold text-gray-900 mb-6">Siga-nos nas Redes</h3>
+                        <div class="flex items-center space-x-4">
+                            <a href="https://www.instagram.com/instalartec_/" target="_blank" rel="noopener noreferrer" class="w-12 h-12 rounded-2xl bg-gradient-to-br from-pink-500 to-purple-600 flex items-center justify-center text-white hover:scale-110 transition-transform">
+                                <i data-lucide="instagram" class="w-6 h-6"></i>
+                            </a>
+                            <a href="https://www.facebook.com/instalar01" target="_blank" rel="noopener noreferrer" class="w-12 h-12 rounded-2xl bg-blue-600 flex items-center justify-center text-white hover:scale-110 transition-transform">
+                                <i data-lucide="facebook" class="w-6 h-6"></i>
+                            </a>
+                            <a href="https://wa.me/message/XHHNIOPNCLH5F1" target="_blank" rel="noopener noreferrer" class="w-12 h-12 rounded-2xl bg-emerald-600 flex items-center justify-center text-white hover:scale-110 transition-transform">
+                                <i data-lucide="message-circle" class="w-6 h-6"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-modern rounded-3xl p-8">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">Envie sua Mensagem</h3>
+                    <form class="space-y-6">
+                        <div class="grid sm:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">Nome Completo</label>
+                                <input class="w-full rounded-2xl border-2 border-gray-200 px-4 py-3 focus:outline-none focus:border-blue-500 transition-colors" placeholder="Seu nome completo" required />
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">WhatsApp</label>
+                                <input class="w-full rounded-2xl border-2 border-gray-200 px-4 py-3 focus:outline-none focus:border-blue-500 transition-colors" placeholder="(17) 99999-9999" required />
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">E-mail</label>
+                            <input type="email" class="w-full rounded-2xl border-2 border-gray-200 px-4 py-3 focus:outline-none focus:border-blue-500 transition-colors" placeholder="seu@email.com" />
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">Mensagem</label>
+                            <textarea class="w-full rounded-2xl border-2 border-gray-200 px-4 py-3 min-h-[140px] focus:outline-none focus:border-blue-500 transition-colors resize-none" placeholder="Descreva seu equipamento e o problema encontrado..."></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white font-bold py-4 px-8 rounded-2xl transition-all duration-300 flex items-center justify-center shadow-lg hover:shadow-xl hover:scale-105">
+                            <i data-lucide="send" class="mr-3 w-5 h-5"></i>
+                            Enviar Mensagem
+                        </button>
+                        <p class="text-sm text-gray-500 text-center">
+                            <i data-lucide="shield-check" class="inline w-4 h-4 mr-1"></i>
+                            Seus dados estão protegidos pela nossa política de privacidade
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 lg:py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-12">
+                <div class="md:col-span-2">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-12 h-12 bg-gradient-to-br from-blue-700 to-blue-900 rounded-2xl flex items-center justify-center">
+                            <i data-lucide="snowflake" class="w-6 h-6 text-white"></i>
+                        </div>
+                        <div>
+                            <span class="font-bold text-2xl">InstalarTec</span>
+                            <p class="text-blue-300 text-sm">Soluções em Climatização</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-lg leading-relaxed mb-8 max-w-md">
+                        Transformando ambientes com tecnologia de ponta e atendimento excepcional. 
+                        Sua satisfação é nossa prioridade.
+                    </p>
+                    <div class="flex items-center space-x-4">
+                        <a href="https://www.instagram.com/instalartec_/" target="_blank" rel="noopener noreferrer" class="w-12 h-12 rounded-2xl bg-gray-800 hover:bg-gradient-to-br hover:from-pink-500 hover:to-purple-600 flex items-center justify-center transition-all duration-300">
+                            <i data-lucide="instagram" class="w-5 h-5"></i>
+                        </a>
+                        <a href="https://www.facebook.com/instalar01" target="_blank" rel="noopener noreferrer" class="w-12 h-12 rounded-2xl bg-gray-800 hover:bg-blue-600 flex items-center justify-center transition-all duration-300">
+                            <i data-lucide="facebook" class="w-5 h-5"></i>
+                        </a>
+                        <a href="https://wa.me/message/XHHNIOPNCLH5F1" target="_blank" rel="noopener noreferrer" class="w-12 h-12 rounded-2xl bg-gray-800 hover:bg-emerald-600 flex items-center justify-center transition-all duration-300">
+                            <i data-lucide="message-circle" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="font-bold text-lg mb-6">Navegação</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#servicos" class="text-gray-400 hover:text-white transition-colors flex items-center space-x-2"><i data-lucide="chevron-right" class="w-4 h-4"></i><span>Serviços</span></a></li>
+                        <li><a href="#depoimentos" class="text-gray-400 hover:text-white transition-colors flex items-center space-x-2"><i data-lucide="chevron-right" class="w-4 h-4"></i><span>Depoimentos</span></a></li>
+                        <li><a href="#faq" class="text-gray-400 hover:text-white transition-colors flex items-center space-x-2"><i data-lucide="chevron-right" class="w-4 h-4"></i><span>Dúvidas</span></a></li>
+                        <li><a href="#contato" class="text-gray-400 hover:text-white transition-colors flex items-center space-x-2"><i data-lucide="chevron-right" class="w-4 h-4"></i><span>Contato</span></a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="font-bold text-lg mb-6">Atendimento</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-3">
+                            <i data-lucide="phone" class="w-5 h-5 text-green-400"></i>
+                            <div>
+                                <p class="font-semibold">(17) 99235-8505</p>
+                                <p class="text-sm text-gray-400">24/7 Disponível</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i data-lucide="mail" class="w-5 h-5 text-orange-400"></i>
+                            <div>
+                                <p class="font-semibold">gu.palmieri@hotmail.com</p>
+                                <p class="text-sm text-gray-400">Resposta rápida</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <i data-lucide="map-pin" class="w-5 h-5 text-blue-400 mt-1"></i>
+                            <div>
+                                <p class="font-semibold">São José do Rio Preto</p>
+                                <p class="text-gray-400">São Paulo - SP</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 mt-16 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                    <p class="text-gray-400">© 2024 InstalarTec. Todos os direitos reservados.</p>
+
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // FAQ Toggle
+        document.querySelectorAll('.faq-toggle').forEach(button => {
+            button.addEventListener('click', () => {
+                const content = button.nextElementSibling;
+                const icon = button.querySelector('[data-lucide="chevron-right"]');
+                const isHidden = content.classList.contains('hidden');
+                
+                // Close all other FAQs
+                document.querySelectorAll('.faq-content').forEach(otherContent => {
+                    if (otherContent !== content && !otherContent.classList.contains('hidden')) {
+                        otherContent.classList.add('hidden');
+                        const otherIcon = otherContent.previousElementSibling.querySelector('[data-lucide="chevron-right"]');
+                        otherIcon.style.transform = 'rotate(0deg)';
+                    }
+                });
+                
+                // Toggle current FAQ
+                content.classList.toggle('hidden');
+                icon.style.transform = isHidden ? 'rotate(90deg)' : 'rotate(0deg)';
+            });
+        });
+
+        // Form submission
+        document.querySelector('form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const button = e.target.querySelector('button[type="submit"]');
+            const originalText = button.innerHTML;
+            
+            button.innerHTML = '<i data-lucide="loader-2" class="mr-3 w-5 h-5 animate-spin"></i>Enviando...';
+            button.disabled = true;
+            
+            setTimeout(() => {
+                button.innerHTML = '<i data-lucide="check" class="mr-3 w-5 h-5"></i>Mensagem Enviada!';
+                button.className = button.className.replace('gradient-primary', 'gradient-success');
+                
+                setTimeout(() => {
+                    button.innerHTML = originalText;
+                    button.disabled = false;
+                    button.className = button.className.replace('gradient-success', 'gradient-primary');
+                    e.target.reset();
+                }, 2000);
+            }, 1500);
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerOffset = 80;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Header background on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(15, 23, 42, 0.95)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.1)';
+            }
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.card-modern, .animate-scale-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Mobile Menu
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
+
+        function openMobileMenu() {
+            mobileMenu.style.transform = 'translateX(0)';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMobileMenu() {
+            mobileMenu.style.transform = 'translateX(100%)';
+            document.body.style.overflow = 'auto';
+        }
+
+        mobileMenuBtn.addEventListener('click', openMobileMenu);
+        mobileMenuClose.addEventListener('click', closeMobileMenu);
+
+        // Close menu when clicking on links
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                setTimeout(closeMobileMenu, 300);
+            });
+        });
+
+        // Close menu when clicking outside
+        mobileMenu.addEventListener('click', (e) => {
+            if (e.target === mobileMenu) {
+                closeMobileMenu();
+            }
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'987e5c27172b8b18',t:'MTc1OTM0Njg3My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
